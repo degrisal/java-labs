@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="UTF-8">
+        <title>Управление сотрудниками</title>
+         <link rel="stylesheet" type="text/css" href="styles.css">
+        
+
+</head>
+<body>
+<h1>Управление сотрудниками</h1>
+
+
+
+   <!-- Форма для поиска сотрудников по фамилии -->
+<form id="searchByLastNameForm">
+        <label for="employeeLastName">Фамилия сотрудника:</label>
+        <input type="text" id="employeeLastName" name="employeeLastName">
+        <button type="button" onclick="saveLastName()">Сохранить</button>
+</form>
+    <a href="newpage.html">Перейти на новую страницу</a>
+<!-- Форма для поиска сотрудников по номеру -->
+<form id="searchByNumberForm">
+<label for="employeeNumber">Номер сотрудника:</label>
+<input type="text" id="employeeNumber" name="employeeNumber">
+<button type="button" onclick="searchByNumber()"  >Поиск по номеру</button>
+<button onclick="checkInputForNumber()">Проверка</button>
+</form>
+
+<!-- Форма для поиска сотрудников по имени -->
+<form id="searchByNameForm">
+<label for="employeeName">Имя сотрудника:</label>
+<input type="text" id="employeeName" value="например, Иванов" onfocus="clearText()" onblur="restoreText()">
+<button type="button" onclick="searchByName()">Поиск по имени</button>
+</form>
+
+<!-- Кнопка для вывода информации обо всех сотрудниках -->
+<button type="button" onclick="showAllEmployees()">Показать всех сотрудников</button>
+
+
+<!-- Таблица с данными о сотрудниках -->
+<table border="1">
+<thead>
+<tr>
+<th></th>
+<th>Номер сотрудника</th>
+<th>Имя сотрудника</th>
+<th>Должность</th>
+<th>Дата принятия на работу</th>
+<th>Департамент</th>
+<th>Удалить</th>
+</tr>
+</thead>
+<tbody>
+<tr id="main-pers" class="1">
+        <td><input type="checkbox"></td>
+        <td><a href="#">1</a></td>
+        <td>Иван Иванов</td>
+        <td>Менеджер</td>
+        <td>2023-01-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="1">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="2">
+        <td><input type="checkbox"></td>
+        <td><a href="#">2</a></td>
+        <td>Данила Цыдилин</td>
+        <td>Менеджер</td>
+        <td>2023-01-20</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="2">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="3">
+        <td><input type="checkbox"></td>
+        <td><a href="#">3</a></td>
+        <td>Сергей Чижов</td>
+        <td>Менеджер</td>
+        <td>2023-03-16</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="3">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="4">
+        <td><input type="checkbox"></td>
+        <td><a href="#">4</a></td>
+        <td>Матвей Беспалов</td>
+        <td>Менеджер</td>
+        <td>2021-01-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="4">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="5">
+        <td><input type="checkbox"></td>
+        <td><a href="#">5</a></td>
+        <td>Макар Авдеев</td>
+        <td>Менеджер</td>
+        <td>2023-01-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="5">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="6">
+        <td><input type="checkbox"></td>
+        <td><a href="#">6</a></td>
+        <td>Андрей Кузнецов</td>
+        <td>Менеджер</td>
+        <td>2023-01-20</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="6">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="7">
+        <td><input type="checkbox"></td>
+        <td><a href="#">7</a></td>
+        <td>Никита Григорьев</td>
+        <td>Менеджер</td>
+        <td>2023-10-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="7">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="8">
+        <td><input type="checkbox"></td>
+        <td><a href="#">8</a></td>
+        <td>Андрей Григорьев</td>
+        <td>Менеджер</td>
+        <td>2023-01-30</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="8">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="9">
+        <td><input type="checkbox"></td>
+        <td><a href="#">9</a></td>
+        <td>Иван Абрамов</td>
+        <td>Менеджер</td>
+        <td>2013-10-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="9">Удалить</a></td>
+</tr>
+<tr id="main-pers" class="10">
+        <td><input type="checkbox"></td>
+        <td><a href="#">10</a></td>
+        <td>Артём Абрамов</td>
+        <td>Менеджер</td>
+        <td>2023-01-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#" class="delete-link" data-index="10">Удалить</a></td>
+</tr>
+<button class="create_person_btn" onclick="createPerson()">Создать нового сотрудника</button>
+</tbody>
+</table>
+<script src="java.js"></script>
+</body>
+</html>

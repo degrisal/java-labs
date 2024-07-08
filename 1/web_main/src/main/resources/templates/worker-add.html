@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <header th:insert="blocks/header :: header"></header>
+      <div class="container mt-5" >
+        <h1 th:text="${title}"></h1>
+    <form action="/workers/add" method="post">
+        <input type="text" name="FirstName" placeholder="Имя" class="form-control"><br>
+        <input type="text" name="SecondName" placeholder="Фамилия" class="form-control"><br>
+        <input type="text" name="ThirdName" placeholder="Отчество" class="form-control"><br>
+        <input type="text" name="Old" placeholder="Возраст" class="form-control"><br>
+        <input type="text" name="Rank" placeholder="Должность" class="form-control"><br>
+        <input type="text" name="Stonks" placeholder="Зарплата" class="form-control"><br>
+        <input type="text" name="Branch" placeholder="Филиал" class="form-control"><br>
+        <button type="submit" class="btn btn-success">Добавить</button>
+    </form>
+      </div>
+    <div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

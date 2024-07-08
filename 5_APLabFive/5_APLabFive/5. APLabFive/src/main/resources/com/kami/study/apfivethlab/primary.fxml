@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--описание пользовательского интерфейса с использованием библиотеки JavaFX.-->
+ <!--Определяем разметку для создания окна приложения, содержащего таблицу с несколькими столбцами и набор полей и кнопок для ввода и управления данными. -->
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<!--JavaFX — платформа на основе Java для создания приложений с насыщенным графическим интерфейсом. -->
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<HBox alignment="CENTER" spacing="20.0" maxWidth="Infinity" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.kami.study.apfivethlab.MainController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <VBox spacing="10.0"> <!--<VBox>: Это контейнер, который располагает дочерние элементы в вертикальной ориентации. -->
+        <HBox spacing="10.0"> <!-- <HBox>: Это контейнер, который располагает дочерние элементы в горизонтальной ориентации.-->
+            <Label text="ID" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="idField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Firstname" HBox.hgrow="ALWAYS"/> <!--<Label>: Элемент для отображения текстовой метки. -->
+            <TextField fx:id="firstnameField" HBox.hgrow="ALWAYS"/> <!--<TextField>: Элемент для ввода текста. -->
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Lastname" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="lastnameField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Manager" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="managerField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Salary" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="salaryField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="DepartmentId" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="departmentField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="Department Name" HBox.hgrow="ALWAYS"/> <!--<Label>: Элемент для отображения текстовой метки. -->
+            <TextField fx:id="NameDepartmentField" HBox.hgrow="ALWAYS"/> <!--<TextField>: Элемент для ввода текста. -->
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="City" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="cityField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+        <HBox spacing="10.0">
+            <Label text="ETC" HBox.hgrow="ALWAYS"/>
+            <TextField fx:id="etcField" HBox.hgrow="ALWAYS"/>
+        </HBox>
+         <!--Кнопки <Button> привязаны к определенным действиям, которые будут выполнены при нажатии на них.  -->
+        <HBox spacing="10.0"> <!--<Button>: Элемент для создания кнопки. -->
+            <Button fx:id="addButton" text="Insert" mnemonicParsing="false" onAction="#addButtonAction" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="editButton" text="Update" mnemonicParsing="false" onAction="#editButtonAction" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="deleteButton" text="Delete" mnemonicParsing="false" onAction="#deleteButtonAction" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="byIdButton" text="Get by ID" mnemonicParsing="false" onAction="#byIdButtonAction" HBox.hgrow="ALWAYS"/>
+            <Button fx:id="refreshButton" text="Refresh" mnemonicParsing="false" onAction="#refreshButtonAction" HBox.hgrow="ALWAYS"/>
+        </HBox>
+    </VBox>
+   <!--Таблица <TableView> содержит набор <TableColumn>,каждый из которых определяет столбец таблицы.  -->
+   <!-- У каждого столбца есть уникальный идентификатор fx:id и текстовая метка text. -->
+    <TableView fx:id="table" HBox.hgrow="ALWAYS"> <!--<TableView>: Элемент для отображения таблицы данных. -->
+        <columns>
+            <TableColumn fx:id="idCol" text="ID"/> <!--<TableColumn>: Элемент, определяющий столбец таблицы. -->
+            <TableColumn fx:id="fNameCol" text="Firstname"/>
+            <TableColumn fx:id="lNameCol" text="Lastname"/>
+            <TableColumn fx:id="managerCol" text="Manager"/>
+            <TableColumn fx:id="salaryCol" text="Salary"/>
+            <TableColumn fx:id="departmentCol" text="Department"/>
+            <TableColumn fx:id="nameDepartmentCol" text="Name Department"/>
+            <TableColumn fx:id="cityCol" text="City"/>
+            <TableColumn fx:id="etcCol" text="ETC"/>
+            <TableColumn fx:id="ectRatioCol" text="ETCRatio"/>
+        </columns>
+    </TableView>
+</HBox>

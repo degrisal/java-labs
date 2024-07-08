@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><group>
+    <student firstname="Иван" groupnumber="101" lastname="Иванов">
+        <subject mark="5" title="Математика"/>
+        <subject mark="2" title="Физика"/>
+        <average>3,5</average>
+    </student>
+    <student firstname="Петр" groupnumber="102" lastname="Петров">
+        <subject mark="3" title="История"/>
+        <subject mark="3" title="Литература"/>
+        <average>3,0</average>
+    </student>
+    <student firstname="Петр" groupnumber="102" lastname="Петров">
+        <subject mark="5" title="История"/>
+        <subject mark="2" title="Литература"/>
+        <average>3,5</average>
+    </student>
+    <student firstname="Петр" groupnumber="102" lastname="Петров">
+        <subject mark="4" title="История"/>
+        <subject mark="2" title="Литература"/>
+        <average>3,0</average>
+    </student>
+</group>

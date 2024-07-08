@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+    <title th:text="${title}"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <header th:insert="blocks/header :: header"></header>
+      <div class="container mt-5" >
+        <h1 th:text="${title}"></h1>
+        <div th:each="el : ${worker}" class="alert alert-info mt-2">
+            <p><b>ФИО:</b>
+                <span th:text="${el.FirstName}"/>
+                <span th:text=" ${el.SecondName}"/>
+                <span th:text=" ${el.ThirdName}"/>
+            </p>
+              <p><b>Возраст:</b>
+                <span th:text="${el.Old}"/>
+            </p>
+              <p><b>Должность:</b>
+                <span th:text="${el.Rank}"/>
+              </p>
+              <p><b>Зарплата:</b>
+                <span th:text="${el.Stonks}"/><b>руб.</b>
+              </p>
+              <p><b>Подразделение:</b>
+                <span th:text="${el.Branch}"/>
+              </p>
+            <p>
+                <a th:href="'/worker/edit/' + ${el.id}"class="btn btn-warning">Редактировать</a>
+                <form th:action="'/worker/delete/' + ${el.id}" method="post">
+                    <button type="submit" class="btn btn-warning">Удалить</button>
+                </form>
+            </p>
+        </div>
+      </div>
+    <div th:insert="blocks/footer :: footer"></div>
+</body>
+</html>

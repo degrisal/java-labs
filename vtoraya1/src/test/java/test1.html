@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Управление данными сотрудников</title>
+</head>
+<body>
+<h1>Управление данными сотрудников</h1>
+
+<!-- Форма для поиска по номеру сотрудника -->
+<form>
+    <label for="searchByNumber">Поиск по номеру сотрудника:</label>
+    <input type="text" id="searchByNumber" name="searchByNumber">
+    <button type="submit">Поиск</button>
+</form>
+
+<!-- Форма для поиска по имени сотрудника -->
+<form>
+    <label for="searchByName">Поиск по имени сотрудника:</label>
+    <input type="text" id="searchByName" name="searchByName">
+    <button type="submit">Поиск</button>
+</form>
+
+<!-- Кнопка для вывода информации о всех сотрудниках -->
+<button id="showAll">Показать всех сотрудников</button>
+
+<!-- Гиперссылка для создания нового сотрудника -->
+<a href="create_employee.html">Создать нового сотрудника</a>
+
+<!-- Таблица с данными о сотрудниках -->
+<table>
+    <thead>
+    <tr>
+        <th></th>
+        <th>Номер сотрудника</th>
+        <th>Имя сотрудника</th>
+        <th>Должность</th>
+        <th>Дата принятия на работу</th>
+        <th>Департамент</th>
+        <th>Удалить</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Здесь можно заполнить таблицу данными о сотрудниках -->
+    <tr>
+        <td><input type="checkbox"></td>
+        <td><a href="#">1</a></td>
+        <td>Иванов Иван</td>
+        <td>Менеджер</td>
+        <td>2022-01-15</td>
+        <td>Отдел продаж</td>
+        <td><a href="#">Удалить</a></td>
+    </tr>
+    <tr>
+        <td><input type="checkbox"></td>
+        <td><a href="#">2</a></td>
+        <td>Петрова Ольга</td>
+        <td>Разработчик</td>
+        <td>2021-11-30</td>
+        <td>Отдел разработки</td>
+        <td><a href="#">Удалить</a></td>
+    </tr>
+    <!-- Добавьте больше строк с данными о сотрудниках по аналогии -->
+    </tbody>
+</table>
+</body>
+</html>

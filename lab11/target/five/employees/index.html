@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/five/styles/employees.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Employees</title>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="employeeNameInput" placeholder="Введите имя сотрудника" oninput="searchEmployeeByName()" />
+        <table id="emp-table" class="employees">
+        </table>
+    </div>
+    <script>
+        function searchEmployeeByName() {
+            var input = $('#employeeNameInput').val();
+            if(input.length >= 2) {
+                $.ajax({
+                    url: './get',
+                    type: 'GET',
+                    data: {'name': input},
+                    success: function(data) {
+                        let table_html =
+                            `<tr>
+                                <th>id</th>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Руководитель</th>
+                                <th>Город</th>
+                                <th>Квалификация</th>
+                                <th>Отдел</th>
+                                <th>Зарплата</th>
+                            </tr>`
+                        for(let employ of data) {
+                            table_html+=`<tr>
+                                <td>${employ.id}</td>
+                                <td>${employ.firstname}</td>
+                                <td>${employ.lastname}</td>
+                                <td>${employ.manager}</td>
+                                <td>${employ.city}</td>
+                                <td>${employ.etc}</td>
+                                <td>${employ.department}</td>
+                                <td>${employ.salary}</td>
+                            </tr>`
+                        }
+                        $('#emp-table').html(table_html);
+                    }
+                });
+            }else {
+                $('#emp-table').html('');
+            }
+        }
+    </script>
+</body>
+</html>

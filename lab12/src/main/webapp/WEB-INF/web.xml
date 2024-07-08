@@ -1,0 +1,51 @@
+<web-app 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns="http://java.sun.com/xml/ns/javaee"
+  xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
+  xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+  id="Your_WebApp_ID"
+  version="2.5">
+  <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>calculate</servlet-name>
+    <jsp-file>/calculator/calculate.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>calculator</servlet-name>
+    <jsp-file>/calculator/calculator.jsp</jsp-file>
+  </servlet>
+  <servlet>
+    <servlet-name>employees</servlet-name>
+    <jsp-file>/employees/data.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>calculate</servlet-name>
+    <url-pattern>/calculate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>calculator</servlet-name>
+    <url-pattern>/calculator</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>employees</servlet-name>
+    <url-pattern>/employees/get</url-pattern>
+  </servlet-mapping>
+
+  <jsp-config>
+    <jsp-property-group>
+        <url-pattern>*.jsp</url-pattern>
+        <el-ignored>false</el-ignored>
+    </jsp-property-group>
+  </jsp-config>
+  
+  <error-page>
+    <error-code>404</error-code>
+    <location>/calculator/error.jsp</location>
+  </error-page>
+  <error-page>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/calculator/error.jsp</location>
+  </error-page>
+</web-app>

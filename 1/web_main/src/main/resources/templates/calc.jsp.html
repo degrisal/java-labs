@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <form action="calculator.jsp" method="post">
+        <input type="number" name="num1" value="${param.num1}" placeholder="Enter number 1" required><br>
+        <input type="number" name="num2" value="${param.num2}" placeholder="Enter number 2" required><br>
+        <input type="submit" name="operator" value="+" />
+        <input type="submit" name="operator" value="-" />
+        <input type="submit" name="operator" value="*" />
+        <input type="submit" name="operator" value="/" />
+    </form>
+
+    <%-- Calculate the result --%>
+    <% 
+        double result = 0;
+        String operator = request.getParameter("operator");
+        if (operator != null) {
+            double num1 = Double.parseDouble(request.getParameter("num1"));
+            double num2 = Double.parseDouble(request.getParameter("num2"));
+        
+            switch (operator) {
+                case "+":
+                    result = num1 + num2;
+                    break;
+                case "-":
+                    result = num1 - num2;
+                    break;
+                case "*":
+                    result = num1 * num2;
+                    break;
+                case "/":
+                    result = num1 / num2;
+                    break;
+            }
+        }
+    %>
+
+    <%-- Display the result --%>
+    <% if (operator != null) { %>
+        <p>${num1} ${operator} ${num2} = ${result}</p>
+    <% } %>
+</body>
+</html>
